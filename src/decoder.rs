@@ -3,7 +3,7 @@ use crate::{error::Gdl90Error, message::Gdl90Message};
 use std::fmt::Debug;
 
 pub struct Gdl90Decoder {
-    input_buffer: [u8; 512],
+    input_buffer: [u8; 2048],
     buffer_index: usize,
     incomplete: bool,
     control_escape: bool,
@@ -18,7 +18,7 @@ pub enum DecodeResult {
 impl Gdl90Decoder {
     pub fn new() -> Gdl90Decoder {
         Gdl90Decoder {
-            input_buffer: [0; 512],
+            input_buffer: [0; 2048],
             buffer_index: 0,
             incomplete: false,
             control_escape: false,

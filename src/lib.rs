@@ -1,6 +1,6 @@
 mod error;
 mod message;
-mod decoder;
+pub mod decoder;
 
 #[cfg(test)]
 mod tests {

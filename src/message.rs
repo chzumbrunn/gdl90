@@ -17,13 +17,13 @@ impl Gdl90Message {
     pub fn from_bytes(bytes: &[u8]) -> Result<Gdl90Message, Gdl90Error> {
         // TODO: error handling, return Result
         match bytes[0] {
-            0x00 => {
+            0 => {
                 Ok(Gdl90Message::Heartbeat(Heartbeat::from_bytes(&bytes[1..])))
             },
-            0x10 => {
+            10 => {
                 Ok(Gdl90Message::OwnShip(OwnShipTraffic::from_bytes(&bytes[1..])?))
             },
-            0x20 => {
+            20 => {
                 Ok(Gdl90Message::Traffic(OwnShipTraffic::from_bytes(&bytes[1..])?))
             },
             _ => {
